@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/shablloniProkurimit.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="chapterItem">
+        <h:form id="frmShtoArtikull">
+        <h1>Plotësoni fushat më poshtë, për ta shtuar një artikull të ri ... </h1>
+        
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" /> 
+        
+        <h:panelGrid columns="2" cellpadding="5">
+            
+            <h:outputText value="Emri i artikullit: " />
+            <p:inputText value="#{artikulliController.emriArtikullit}" />
+            
+            
+            
+            <h:outputText value="Përshkrimi: " />
+            <h:inputText value="#{artikulliController.pershkrimi}" />
+            
+            <h:commandButton value="Shto Artikullin" action="#{artikulliController.shtoArtikullin()}" />
+                         
+                         
+            
+            
+            
+        </h:panelGrid>
+        
+                     
+        
+        
+        </h:form>
+    <h:outputStylesheet library="css" name="layout.css"/>
+    </ui:define>
+    <ui:define name="appResources">
+        <h:outputStylesheet library="css" name="chapter2/customStyles.css"/>
+    </ui:define>
+    
+  </ui:composition>
+
+

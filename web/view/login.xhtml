@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/shablloniProkurimit.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="chapterItem">
+        <form method="post" action="j_security_check" name="loginForm">
+            <center>
+                <p align="center" class="sub_head_sub"><br />
+                    <strong>DCO - Prokurimi</strong>
+                </p>
+                <span class="normal">
+                    Duhet te kyceni per tu qasur ne aplikacion!
+                </span>
+                <br/>
+                <span class="error">
+                    <h:messages errorStyle="color:red" infoStyle="color: green" globalOnly="true" />
+                </span>
+                <h:panelGrid columns="2">
+                    <h:outputLabel id="userNameLabel" for="j_username" value="Username:" />
+                    <h:inputText id="j_username" autocomplete="off" />
+                    <h:outputLabel id="passwordLabel" for="j_password" value="Password:" />
+                    <h:inputSecret id="j_password" autocomplete="off" />
+                    <div/>
+                    <h:panelGroup>
+                        <h:commandButton type="submit" value="Login" />
+                        <h:commandButton type="reset" value="Clear" />
+                    </h:panelGroup>
+                </h:panelGrid>
+            </center>
+        </form>
+        <h:outputStylesheet library="css" name="layout.css"/>
+    </ui:define>
+    
+    
+  </ui:composition>
+        
+

@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/shablloniProkurimit.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="chapterItem">
+        <h:form id="frmKorrigjoShtoKontraten">
+        
+        
+        <p:messages id="messagesKontrata" showDetail="true" autoUpdate="true" closable="true" /> 
+        
+        <h:panelGrid columns="2" cellpadding="5">
+            
+            <h:outputText id="shtoKontrateNrKontOut" value="Numri kontrates" />
+            <p:inputText id="shtoKontrateNrKontIn" value="#{kontratatController.numriKontrates}" />
+            
+            <h:outputText id="shtoKontrateDepartamentiIn" value="Departamenti: " />
+            <p:selectOneMenu id="shtoKontrateDepartamentiOut" value="#{kontratatController.departamenti}" >
+                <f:selectItem itemLabel="Zgjidhe deparatmentin" itemValue=""/>
+                <f:selectItems value="#{kontratatController.departamentet}" 
+                               var="departamenti" 
+                               itemLabel="#{kontratatController.departamenti}" 
+                               itemValue="#{kontratatController.departamenti}" />
+            </p:selectOneMenu>
+            
+            <h:outputText id="shtoKontrateFurnitoriOut" value="Furnitori " />
+            <p:selectOneMenu id="shtoKontrateFurnitoriIn" value="#{kontratatController.furnitoriSO}" style="width:100%" >
+                <f:selectItem itemLabel="Zgjidhe furnitorin" itemValue=""/>
+                <f:selectItems value="#{kontratatController.furnitortSO}" 
+                               var="f" 
+                               itemLabel="#{f.emriFurnitorit}" 
+                               itemValue="#{f.emriFurnitorit}" />
+            </p:selectOneMenu>
+            
+            <h:outputText id="shtoKontrateArtikulliOut" value="Artikulli: "/>
+            
+            <p:selectOneMenu id="shtoKontrateArtikulliIn" value="#{kontratatController.artikulliSO}" style="width:100%">
+                <f:selectItem itemLabel="Zgjidhe artikullin" itemValue=""/>
+                <f:selectItems value="#{kontratatController.artikujtSO}" 
+                               var="a" 
+                               itemLabel="#{a.emriArtikullit}" 
+                               itemValue="#{a.emriArtikullit}" />
+            </p:selectOneMenu>
+            
+            <h:outputText id="shtoKontrateSasiaOut" value="Sasia: " />
+            <p:inputText id="shtoKontrateSasiaIn" value="#{kontratatController.sasia}" />
+            
+            <h:outputText id="shtoKontrateAvansiOut" value="Avansi: " />
+            <p:inputText id="shtoKontrateAvansiIn" value="#{kontratatController.avansi}" />
+            
+            <h:outputText id="shtoKontrateDataArritjesOut" value="Data Arritjes ne Port: " />
+            <p:calendar id="shtoKontrateDataArritjesIn" value="#{kontratatController.dataArritjes}" /> 
+            
+            <h:outputText id="shtoKontrateDataRealeArritjesOut" value="Data Reale Arritjes ne Port: " />
+            <p:calendar id="shtoKontrateDataRealeArritjesIn" value="#{kontratatController.dataRealeArritjes}" />
+            
+            <h:outputText id="shtoKontrateCmimiKontOut" value="Cmimi kontrates: " />
+            <p:inputText id="shtoKontrateCmimiKontIn" value="#{kontratatController.cmimiKontrates}" />
+            
+            <h:outputText id="shtoKontratePjesaMbeturOut" value="Pjesa e mbetur per pagese: " />
+            <p:inputText id="shtoKontratePjesaMbeturIn" value="#{kontratatController.pjesaMbetur}" />
+            
+            <h:commandButton value="Shto Kontraten" action="#{kontratatController.shtoKontrate}" />
+                         
+                         
+            
+            
+            
+        </h:panelGrid>
+        
+                     
+        
+        
+        </h:form>
+    <h:outputStylesheet library="css" name="layout.css"/>
+    </ui:define>
+    <ui:define name="appResources">
+        <h:outputStylesheet library="css" name="chapter2/customStyles.css"/>
+    </ui:define>
+    
+  </ui:composition>
+
+

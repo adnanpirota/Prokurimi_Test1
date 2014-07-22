@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/shablloniProkurimit.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="chapterItem">
+        <h:form id="frmShtoFurnitorin">
+        <h1>Plotësoni fushat më poshtë, për ta shtuar një furnitore të ri ... </h1>
+        
+        <p:messages id="messagesFurnitoret" showDetail="true" autoUpdate="true" closable="true" /> 
+        
+        <h:panelGrid columns="2" cellpadding="5">
+            
+            <h:outputText id="shtoFurnEmriOut" value="Emri i furnitorit: " />
+            <p:inputText id="shtoFurnEmriIn" value="#{furnitoriController.emriFurnitorit}" />
+            
+            <h:outputText id="shtoFurnTelOut" value="Telefoni kontaktues: " />
+            <p:inputText id="shtoFurnTelIn" value="#{furnitoriController.telefoni}" />
+            
+            <h:outputText id="shtoFurnEmailOut" value="Emaili: " />
+            <p:inputText id="shtoFurnEmailIn" value="#{furnitoriController.emaili}" />
+            
+            
+            
+            <h:commandButton value="Shto Furnitorin" action="#{furnitoriController.shtoFurnitorin()}" />
+                         
+                         
+            
+            
+            
+        </h:panelGrid>
+        
+                     
+        
+        
+        </h:form>
+    <h:outputStylesheet library="css" name="layout.css"/>
+    </ui:define>
+    <ui:define name="appResources">
+        <h:outputStylesheet library="css" name="chapter2/customStyles.css"/>
+    </ui:define>
+    
+  </ui:composition>
+
+

@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/shablloniProkurimit.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="chapterItem">
+        <h:form id="frmRaportiFurnitorit">
+        <h1>Furnitoret </h1>
+        
+        <p:growl id="messages" showDetail="true"/>  
+        
+        
+        <p:outputLabel id="lblZgjidheFurnitorin" value="Zgjidhe Furnitorin: " />
+        <p:selectOneMenu id="somZgjidheFurnitorin" value="#{furnitoriController.furnitoriZgjedhur}"  >
+            <f:selectItem itemLabel="Zgjidhe furnitorin" itemValue=""/>
+            <f:selectItems value="#{furnitoriController.furnitortLista}"
+                           var="f"
+                           itemLabel="#{f.emriFurnitorit}"
+                           itemValue="#{f.emriFurnitorit}" />
+            <p:ajax event="change" update="@(form)" />
+        </p:selectOneMenu>
+        <br/>
+        <br/>
+        
+       <!-- <p:commandButton update="@(form)" value="All Forms" /> -->
+                      
+        
+        <p:dataTable id="tblRaportiFurnitorit" value="#{furnitoriController.kontratatEFurnitorit}" var="kontrata" 
+                     rendered="#{not empty furnitoriController.kontratatEFurnitorit}" >
+            <p:column headerText="Numri i kontrates" >
+                <h:outputText value="#{kontrata.numriKontrates}" />
+            </p:column>
+            <p:column headerText="Artikulli" >
+                <h:outputText value="#{kontrata.artikulli.emriArtikullit}" />
+            </p:column>
+            <p:column headerText="Sasia" >
+                <h:outputText value="#{kontrata.sasia}" />
+            </p:column>
+            <p:column headerText="Avansi">
+                <h:outputText value="#{kontrata.avansi}" />
+            </p:column>
+            
+            <p:column headerText="Data e Arritjes Ne Port" >
+                <h:outputText value="#{kontrata.kohaArritjesPort}" >
+                 <f:convertDateTime pattern="dd/MM/yyyy" />  
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Data Reale e Arritjes Ne Port" >
+                <h:outputText value="#{kontrata.kohaRealeArritjesPort}" >
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Cmimi kontrates" >
+                <h:outputText value="#{kontrata.cmimiKontrates}" >
+                    <f:convertNumber currencyCode="EUR" type="currency"  />
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Pjesa e Mbetur per pagese" >
+                <h:outputText value="#{kontrata.pjesaMbeturPerPagese}" >
+                    <f:convertNumber currencyCode="EUR" type="currency"  />
+                </h:outputText>
+            </p:column>
+            
+            
+                      
+            
+            
+            
+            
+            
+         
+         </p:dataTable>
+                     
+                     </h:form>
+    <h:outputStylesheet library="css" name="layout.css"/>
+    </ui:define>
+    <ui:define name="appResources">
+        <h:outputStylesheet library="css" name="chapter2/customStyles.css"/>
+    </ui:define>
+    
+  </ui:composition>
+
+
