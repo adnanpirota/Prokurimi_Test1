@@ -111,7 +111,7 @@ public class AuthenticationBean implements Serializable {
                 setUser((User) userQry.getSingleResult());
                 System.out.println("Setting User, user exists in database with role ->" +
                                                                             user.getSecurityRole());
-                setAuthentication(true);
+                setAuthenticated(true);
                 session.setAttribute("authenticated", new Boolean(true));
                 
             } else {
@@ -122,7 +122,7 @@ public class AuthenticationBean implements Serializable {
             
             FacesContext.getCurrentInstance().addMessage(null, new 
                         FacesMessage(FacesMessage.SEVERITY_INFO, "Successfully Authenticated",""));
-            return autheticated;
+            return authenticated;
         } catch (NoResultException| ServletException ex) {
             setUser(null);
             setAuthenticated(false);
@@ -234,10 +234,5 @@ public class AuthenticationBean implements Serializable {
     /**
      * @return the user
      */
-    public User getUser(){
-        if (this.user == null) {
-            user = new User();
-        }
-        return user;
-    }
+    
 }
