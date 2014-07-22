@@ -35,7 +35,7 @@ public class AuthenticationBean implements Serializable {
     // "Insert Code > Add Business Method")
     
     // shfrytezuesit dhe fjalekalimet do ti manipulojme permes nje JPA objekti
-    @PersistenceContext(unitName="ProkurimiLoginPU")
+    @PersistenceContext(unitName="ProkurimiPU")
     private EntityManager em;
     private boolean authenticated = false;
     private String username = null;
@@ -231,8 +231,6 @@ public class AuthenticationBean implements Serializable {
     }
     
     
-    /**
-     * @return the user
-     */
+  
     
 }
