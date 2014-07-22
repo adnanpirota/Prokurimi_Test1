@@ -6,6 +6,7 @@
     <class>dco.prokurimi.entity.Departamenti</class>
     <class>dco.prokurimi.entity.Furnitori</class>
     <class>dco.prokurimi.entity.Kontrata</class>
+    <class>dco.prokurimi.entity.User</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
     </properties>
